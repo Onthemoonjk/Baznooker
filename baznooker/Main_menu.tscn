@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxrg0ns2flg02"]
 
-[ext_resource type="Texture2D" uid="uid://d257ffddlidy4" path="res://icon.svg" id="1_036td"]
 [ext_resource type="Script" uid="uid://hjbvhoa07i11" path="res://menu_button.gd" id="1_prmrk"]
+[ext_resource type="Texture2D" uid="uid://bl60bsbtq0gvl" path="res://assets/BOX2.png" id="2_x6lt7"]
 
 [node name="Control" type="Control" unique_id=102740657]
 layout_mode = 3
@@ -13,16 +13,17 @@ grow_vertical = 2
 
 [node name="Button" type="Button" parent="." unique_id=181717536]
 layout_mode = 0
-offset_left = 459.0
-offset_top = 231.0
-offset_right = 593.0
-offset_bottom = 351.0
+offset_left = 448.0
+offset_top = 246.0
+offset_right = 683.0
+offset_bottom = 366.0
 action_mode = 0
+flat = true
 script = ExtResource("1_prmrk")
 scene = "test_scene"
 
 [node name="Sprite2D" type="Sprite2D" parent="Button" unique_id=829987233]
-position = Vector2(68, 59)
-texture = ExtResource("1_036td")
+position = Vector2(138, -105)
+texture = ExtResource("2_x6lt7")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

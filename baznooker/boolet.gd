@@ -7,8 +7,7 @@ var setsize = 1
 var shooter 
 var rotations
 var SHOOT
-var lifetime = 2
-#@onready var setsize
+var lifetime = 4
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +18,7 @@ func _ready() -> void:
 	self.scale *= setsize
 	visual.play("test")
 	apply_central_impulse(SHOOT*dir)
+	shooter.apply_central_impulse(-0.5*SHOOT*dir)
 	body_entered.connect(_on_body_entered)
 	contact_monitor = true
 	max_contacts_reported = 1

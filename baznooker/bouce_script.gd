@@ -50,6 +50,7 @@ func _physics_process(_delta: float) -> void:
 	#END OF TEST CONTROLS
 	
 func shoot(bigness,force):
+	#get_tree().current_scene.get_node("UI/Gunarm/TheHandInQuestion").play("Fire_Bingus")
 	var bullet = preload("res://boolet.tscn").instantiate()
 	bullet.rotations = self.rotation
 	bullet.setsize = bigness
