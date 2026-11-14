@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbtrpvolcbolp"]
+
+[ext_resource type="Script" uid="uid://ckgrveb5lpidl" path="res://bouce_script.gd" id="1_fguf1"]
+[ext_resource type="Texture2D" uid="uid://d257ffddlidy4" path="res://icon.svg" id="2_bicv7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_coq8p"]
+bounce = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ia1lp"]
+radius = 1.0
+
+[node name="Character" type="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_coq8p")
+script = ExtResource("1_fguf1")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ia1lp")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("2_bicv7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35345e-08, 0.561332, -0.76718)
+fov = 90.0
