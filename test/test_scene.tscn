@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://doe763pxsader"]
+
+[ext_resource type="Script" uid="uid://ckgrveb5lpidl" path="res://bouce_script.gd" id="1_ia1lp"]
+[ext_resource type="Texture2D" uid="uid://d257ffddlidy4" path="res://icon.svg" id="2_sasra"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_coq8p"]
+bounce = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ia1lp"]
+radius = 1.0
+
+[node name="Test scee" type="Node3D" unique_id=604651457]
+
+[node name="Entity" type="RigidBody3D" parent="." unique_id=2080341712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_coq8p")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Entity" unique_id=2140359005]
+shape = SubResource("SphereShape3D_ia1lp")
+
+[node name="Sprite3D" type="Sprite3D" parent="Entity" unique_id=1557945546]
+billboard = 1
+texture = ExtResource("2_sasra")
+
+[node name="Character" type="RigidBody3D" parent="." unique_id=980203030]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_coq8p")
+script = ExtResource("1_ia1lp")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Character" unique_id=44396051]
+shape = SubResource("SphereShape3D_ia1lp")
+
+[node name="Sprite3D" type="Sprite3D" parent="Character" unique_id=1683417269]
+billboard = 1
+texture = ExtResource("2_sasra")
+
+[node name="Camera3D" type="Camera3D" parent="Character" unique_id=968255209]
