@@ -57,6 +57,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.08, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_v50gi")
 animation = &"forrun"
-frame_progress = 0.633602
+frame_progress = 0.125631
 
 [connection signal="animation_finished" from="SOLBADGUY" to="." method="_on_solbadguy_animation_finished"]
