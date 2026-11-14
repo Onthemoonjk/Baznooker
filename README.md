@@ -1,3 +1,3 @@
 # Baznooker
 Gregory
-![photo](/Group%20.png)
+![photo](/Group%206.png)
