@@ -6,16 +6,11 @@ func _ready() -> void:
 	sol.play(direction+"run")
 
 func finddir():
-	#MAKE THIS FIND ANGLE RELATED TO CAMERA LATER (should output: for, bac, lef and ,rig)
-	return "for"
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	direction = finddir()
-	
-func _physics_process(delta: float) -> void:
-	angular_velocity=Vector3.ZERO
 
 func _on_solbadguy_animation_finished() -> void:
-	
 	pass # Replace with function body.

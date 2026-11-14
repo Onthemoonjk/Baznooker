@@ -1,38 +1,39 @@
 extends RigidBody3D
+@onready var pause_node: Node = $"../UI/Pause"
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 	contact_monitor = true
 	max_contacts_reported = 1
-#	body_entered.connect(_on_body_entered)
+	body_entered.connect(_on_body_entered)
+	pause_node.pause();pause_node.pause()
 
 func _process(_delta: float) -> void:
-	#print(self.rotation_degrees)
 	pass
-	#var screen_size = get_viewport().get_visible_rect().size
-	#self.rotate_y(-0.00045 * (get_viewport().get_mouse_position().x - screen_size.x/2))
-	#get_viewport().warp_mouse(screen_size/2)
-	#if Input.is_action_just_pressed("forward"):
-		#apply_central_impulse(Vector3(10000,0,0))
-		#print(self.global_position)
 
-#func _on_body_entered(body: RigidBody3D):
-#	print("collided")
-#	body.linear_velocity *= 1.5
+func _on_body_entered(body: RigidBody3D):
+	body.linear_velocity *= 1.25
+	print(self.linear_velocity)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	
 	angular_velocity=Vector3.ZERO
 	var screen_size = get_viewport().get_visible_rect().size
-	self.rotate_y(-0.00045 * (get_viewport().get_mouse_position().x - screen_size.x/2))
-	get_viewport().warp_mouse(screen_size/2)
+	if not pause_node.paused:
+		self.rotate_y(-0.00045 * (get_viewport().get_mouse_position().x - screen_size.x/2))
+		get_viewport().warp_mouse(screen_size/2)
+		if Input.is_action_pressed("dilate"):
+			Engine.time_scale = 0.3
+		elif pause_node.paused:
+			Engine.time_scale = 0.0
+		elif not pause_node.paused:
+			Engine.time_scale = 1.0
+	
 	if Input.is_action_just_pressed("forward"):
-		#print(self.global_position)
-		
 		var direction = Vector3(-sin(self.rotation.y), 0, -cos(self.rotation.y))
 		apply_central_impulse(10*direction)
-		
 	if Input.is_action_just_pressed("shoot"):
-		self.shoot(1,100)
+		shoot(0.5, 10)
 	
 	#TEST CONTROLS
 	var horseyforcey=Vector3.ZERO	
@@ -54,6 +55,4 @@ func shoot(bigness,force):
 	bullet.setsize = bigness
 	bullet.SHOOT = force
 	bullet.shooter=self
-	print("it works")
-	#get_tree().root.get_node("projectiles").add_child(bullet)
-	get_tree().root.add_child(bullet)
+	get_tree().current_scene.get_node("projectiles").add_child(bullet)
