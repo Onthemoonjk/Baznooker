@@ -1,0 +1,111 @@
+[gd_scene load_steps=16 format=3 uid="uid://gor3v16p2ytg"]
+
+[ext_resource type="PackedScene" uid="uid://wu60h6gqi82l" path="res://badguy.tscn" id="1_sasra"]
+[ext_resource type="PackedScene" uid="uid://dbtrpvolcbolp" path="res://Q.tscn" id="2_coq8p"]
+[ext_resource type="Texture2D" uid="uid://b6gvkgs0gqefx" path="res://assets/gunequip.png" id="3_2nij2"]
+[ext_resource type="Script" uid="uid://2tcsahq6qn6x" path="res://gunarm.gd" id="3_coq8p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cbxl"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pr8v"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(600, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buypi"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(1200, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njel3"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(1800, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr1i5"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(2400, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpuu0"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(3000, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo8pe"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(3600, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gito"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(4200, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coq8p"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(4200, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nij2"]
+atlas = ExtResource("3_2nij2")
+region = Rect2(3000, 0, 600, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbuy2"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_7cbxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pr8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buypi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njel3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr1i5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpuu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo8pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gito")
+}],
+"loop": false,
+"name": &"Equip_Bingus",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coq8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nij2")
+}],
+"loop": true,
+"name": &"Hold_Bingus",
+"speed": 5.0
+}]
+
+[node name="Test scee" type="Node3D"]
+
+[node name="Entity" parent="." instance=ExtResource("1_sasra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Character" parent="." instance=ExtResource("2_coq8p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Gunarm" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("3_coq8p")
+
+[node name="TheHandInQuestion" type="AnimatedSprite2D" parent="CanvasLayer/Gunarm"]
+texture_filter = 1
+position = Vector2(749, 246)
+scale = Vector2(1.34333, 1.34)
+sprite_frames = SubResource("SpriteFrames_fbuy2")
+animation = &"Hold_Bingus"
+
+[connection signal="animation_finished" from="CanvasLayer/Gunarm/TheHandInQuestion" to="CanvasLayer/Gunarm" method="_on_the_hand_in_question_animation_finished"]
