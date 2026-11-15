@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://fpblvl744pmy"]
+
+[ext_resource type="Texture2D" uid="uid://bjsuu87w54lk0" path="res://bk_assets/materials/brown-polished-oak-wood/textures_2K/Brown Wood_Diffuse.jpg" id="1"]
+[ext_resource type="Texture2D" uid="uid://d1esjf0brit15" path="res://bk_assets/materials/brown-polished-oak-wood/textures_2K/Wood_Normal 2.jpg" id="2"]
+[ext_resource type="Texture2D" uid="uid://ethmj7gwxs6c" path="res://bk_assets/materials/brown-polished-oak-wood/textures_2K/Wood_Displace2.jpg" id="3"]
+[ext_resource type="Shader" uid="uid://bcehupyj1k2eh" path="res://cel_shader/src/outline.gdshader" id="3_h07pt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a7dxu"]
+render_priority = 0
+shader = ExtResource("3_h07pt")
+
+[resource]
+resource_name = "Brown Polished Oak Wood"
+next_pass = SubResource("ShaderMaterial_a7dxu")
+albedo_texture = ExtResource("1")
+metallic = 0.37
+roughness = 0.88
+normal_enabled = true
+normal_texture = ExtResource("2")
+heightmap_texture = ExtResource("3")
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true
