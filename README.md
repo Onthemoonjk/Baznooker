@@ -1,7 +1,7 @@
 BASNOOKER
 
 Abstract:
-Basnooker is a free and open source game that we three (not) merry men made in less than 30 hours or less. We tried to make it work, not work efficiently. Try not to hate it too much.
+Basnooker is a free and open source game that we three (not) merry men made in less than 30 hours or less (and even less than that). We tried to make it work, not work efficiently. Try not to hate it too much.
 
 Tutorial:
 There are only a few basic controls to know;
