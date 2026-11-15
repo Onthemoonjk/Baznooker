@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bdtwt6oeushg0"]
+
+[ext_resource type="Texture2D" uid="uid://b2e054nu8v12i" path="res://bk_assets/materials/carabao-grass/textures_1K/gr_diffuseOriginal.jpg" id="1"]
+[ext_resource type="Texture2D" uid="uid://cb1h072c7ld8w" path="res://bk_assets/materials/carabao-grass/textures_1K/gr_height.jpg" id="2"]
+
+[resource]
+resource_name = "Carabao Grass"
+albedo_color = Color(0, 0.45475107, 0, 1)
+albedo_texture = ExtResource("1")
+roughness = 0.5
+heightmap_enabled = true
+heightmap_texture = ExtResource("2")
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 2.7504007e-05

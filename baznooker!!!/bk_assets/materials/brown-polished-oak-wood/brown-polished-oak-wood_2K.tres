@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://chsh8e20c507r"]
+
+[ext_resource type="Texture2D" path="textures_2K/Brown Wood_Diffuse.jpg" id="1"]
+[ext_resource type="Texture2D" path="textures_2K/Wood_Normal 2.jpg" id="2"]
+[ext_resource type="Texture2D" path="textures_2K/Wood_Displace2.jpg" id="3"]
+
+[resource]
+resource_name = "Brown Polished Oak Wood"
+albedo_texture = ExtResource("1")
+roughness = 0.5
+metallic_specular = 0.5
+normal_texture = ExtResource("2")
+normal_enabled = true
+heightmap_texture = ExtResource("3")
+heightmap_enabled = true
