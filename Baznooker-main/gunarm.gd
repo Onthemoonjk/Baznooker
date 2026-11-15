@@ -23,5 +23,5 @@ func shooted():
 	position=Vector2(0,0)
 
 func chargeshot(shootcharge):
-	position.y=RandomNumberGenerator.new().randf_range(-10*shootcharge,0)
+	position.y=RandomNumberGenerator.new().randf_range(10*shootcharge,0)
 	position.x=RandomNumberGenerator.new().randf_range(-10*shootcharge,0)

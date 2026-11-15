@@ -104,12 +104,6 @@ texture = ExtResource("5_2nij2")
 [node name="Entity1" parent="enermies" groups=["Enemy"] instance=ExtResource("1_sasra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.66044, 0, -4.87427)
 
-[node name="Entity2" parent="enermies" groups=["Enemy"] instance=ExtResource("1_sasra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70527, 0, 8.91311)
-
-[node name="Entity3" parent="enermies" groups=["Enemy"] instance=ExtResource("1_sasra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96416, 0, 14.4167)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_buypi")
 
