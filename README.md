@@ -28,7 +28,7 @@ bun run dev
 ```sh
 bun run build
 ```
-# this is just temporary doesnt work just yet
+this is just temp doesnt work just yet
 
 ## Technology Stack (what was used)
 we used **Godot** (3D) for our engine and the scripts are written in both **C++**, There is `python` in the files as a texture plugin (specifically Blendkit) uses python (is what we believe...). We used aseprite for the development of sprites and visual studio code for pushing git as it is easier than GIT CLI
@@ -37,6 +37,7 @@ we used **Godot** (3D) for our engine and the scripts are written in both **C++*
 We faced numerous problems in the development of the game. We faced numerous errors with the behavior of the enemies, missing files and **mainly git honestly**. We were able to solve mostly all problems and any other problems in this code will preferably be refered to as features for the time being, in all seriousness, all errors were dealt with to the best of our knowlegde. 
 
 ## AI USAGE:
+❌❌❌❌❌\
 No AI was used in this project *excpet* for **debugging GIT errors** (we accidentally deleted all our repo...) 
 
 # Thanks for actually reading the README (we think)!!!!!!!
