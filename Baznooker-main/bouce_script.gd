@@ -13,7 +13,6 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: RigidBody3D):
 	body.linear_velocity *= 1.25
-	print(self.linear_velocity)
 
 func _physics_process(_delta: float) -> void:
 	position.y = 0
@@ -22,8 +21,8 @@ func _physics_process(_delta: float) -> void:
 	else:
 		var greg = 0.013*(45/(7-linear_velocity.length())+15)
 		$CanvasLayer/MistFiner.material.set_shader_parameter("line_density",greg)
-		print(greg)
 	angular_velocity=Vector3.ZERO
+	rotation.x = 0;rotation.z = 0
 	var screen_size = get_viewport().get_visible_rect().size
 	if not pause_node.paused:
 		self.rotate_y(-0.00045 * (get_viewport().get_mouse_position().x - screen_size.x/2))

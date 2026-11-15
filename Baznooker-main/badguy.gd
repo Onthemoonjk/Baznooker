@@ -13,7 +13,10 @@ func _process(_delta: float) -> void:
 	direction = finddir()
 	
 func _physics_process(delta: float) -> void:
-	position.y = 0
+	#position.y = 0
+	if abs(0 - position.y) > 0.1:
+		position.y=0
+		linear_velocity.y=0
 
 func _on_solbadguy_animation_finished() -> void:
 	pass # Replace with function body.
