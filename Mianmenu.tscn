@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://cds0njpqpjbuq"]
+
+[ext_resource type="FontFile" path="res://Assets/PhantomSans-Regular.ttf" id="1_110ci"]
+[ext_resource type="Script" path="res://button.gd" id="2_kwbgc"]
+[ext_resource type="Script" path="res://button_3.gd" id="2_mgdij"]
+[ext_resource type="Texture2D" path="res://Assets/Group 6.png" id="2_papkn"]
+[ext_resource type="VideoStream" uid="uid://cjdtdv82jb31i" path="res://Assets/exitvideo1.ogv" id="3_umpyx"]
+[ext_resource type="Texture2D" path="res://Assets/maxresdefault.jpg" id="5_6ltlt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_papkn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 16
+shadow_color = Color(0.9254902, 0.21568628, 0.3137255, 0.12941177)
+shadow_size = 1
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umpyx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.9254902, 0.21568628, 0.3137255, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ci"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6253258, 0.09338304, 0.18413413, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a7dxu"]
+texture = ExtResource("2_papkn")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Mianmenu" type="Control" unique_id=1811711906]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=342374981]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.81558
+offset_top = -112.5
+offset_right = 171.81558
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2137132817]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_110ci")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_papkn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_umpyx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_110ci")
+text = "start maybe"
+script = ExtResource("2_kwbgc")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1662784537]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_110ci")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_papkn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_umpyx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_110ci")
+text = "no options"
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=707800620]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_110ci")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_papkn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_umpyx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_110ci")
+text = "Exit"
+script = ExtResource("2_mgdij")
+
+[node name="Panel" type="Panel" parent="." unique_id=1830839016]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.1579
+offset_right = 225.1579
+offset_bottom = 207.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a7dxu")
+
+[node name="Control" type="Control" parent="." unique_id=810541466]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2111662994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control/ColorRect" unique_id=628543988]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_umpyx")
+
+[node name="TextureRect" type="TextureRect" parent="Control/ColorRect" unique_id=2029314135]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -154.0
+offset_right = 1084.0
+offset_bottom = 566.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.36000103, 0.36000103)
+texture = ExtResource("5_6ltlt")
