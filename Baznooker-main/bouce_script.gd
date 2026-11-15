@@ -1,5 +1,6 @@
 extends RigidBody3D
 @onready var pause_node: Node = $"../UI/Pause"
+var health = 500
 var dashcd=1
 var chargingdash = false
 var chargetime = 0
@@ -20,6 +21,8 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: RigidBody3D):
 	body.linear_velocity *= 1.25
+	if body.is_in_group("Enemy"):
+		body.damage(linear_velocity.length()*2.5)
 
 func _physics_process(delta: float) -> void:
 	position.y = 0
@@ -82,9 +85,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("debugrig"):
 		horseyforcey+=Vector3(-sin(self.rotation.y-PI/2), 0, -cos(self.rotation.y-PI/2))
 	apply_central_force(horseyforcey*10)
-	apply_force(-self.linear_velocity*1.5)
 	#END OF TEST CONTROLS
 	
+	apply_force(-self.linear_velocity*1.5)
+
 func shoot(bigness,force):
 	$CanvasLayer/Gunarm.shooted()
 	var bullet = preload("res://boolet.tscn").instantiate()
@@ -93,3 +97,9 @@ func shoot(bigness,force):
 	bullet.SHOOT = force
 	bullet.shooter=self
 	get_tree().current_scene.get_node("projectiles").add_child(bullet)
+
+func damage(hurty):
+	health -= hurty
+	print("Player:"+str(health))
+	if health <= 0:
+		get_tree().change_scene_to_file("res://Main_menu.tscn")

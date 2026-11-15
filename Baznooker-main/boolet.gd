@@ -33,8 +33,9 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if linear_velocity.y > 0:
 		linear_velocity.y=0
-	
+
 func _on_body_entered(body: RigidBody3D):
-	#body.damage(10)
-	shooter.dashcd=0
+	if body.is_in_group("Enemy"):
+		body.damage(linear_velocity.length()/10)
+		shooter.dashcd=0
 	queue_free()

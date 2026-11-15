@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://wu60h6gqi82l"]
+[gd_scene format=3 uid="uid://wu60h6gqi82l"]
 
 [ext_resource type="Script" uid="uid://dki66owyh1qsy" path="res://badguy.gd" id="1_apgvv"]
 [ext_resource type="Texture2D" uid="uid://cpcid2wbpm5bd" path="res://assets/Ballrun-Sheet.png" id="1_lf2yb"]
 [ext_resource type="Texture2D" uid="uid://duc3d1651xs61" path="res://assets/Ballrunaway-Sheet.png" id="2_7xngi"]
+[ext_resource type="Texture2D" uid="uid://cbre1iu3x3ytm" path="res://assets/Balldie-Sheet.png" id="3_2byf3"]
 [ext_resource type="Texture2D" uid="uid://ha8wbv84wroa" path="res://assets/Ballrunstrafe-Sheet.png" id="4_2byf3"]
-[ext_resource type="Texture2D" uid="uid://cv02486nsbove" path="res://assets/Ballrunstrafe2-Sheet.png" id="4_v50gi"]
+[ext_resource type="Texture2D" uid="uid://bwe5d307bxats" path="res://assets/Ballrunstrafe2-Sheet.png" id="5_v50gi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_coq8p"]
 bounce = 1.0
@@ -28,6 +29,22 @@ region = Rect2(1200, 0, 600, 600)
 atlas = ExtResource("2_7xngi")
 region = Rect2(1800, 0, 600, 600)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj00k"]
+atlas = ExtResource("3_2byf3")
+region = Rect2(0, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8omm5"]
+atlas = ExtResource("3_2byf3")
+region = Rect2(600, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j2fq"]
+atlas = ExtResource("3_2byf3")
+region = Rect2(1200, 0, 600, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j3ix"]
+atlas = ExtResource("3_2byf3")
+region = Rect2(1800, 0, 600, 600)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_apgvv"]
 atlas = ExtResource("1_lf2yb")
 region = Rect2(0, 0, 600, 600)
@@ -44,20 +61,20 @@ region = Rect2(1200, 0, 600, 600)
 atlas = ExtResource("1_lf2yb")
 region = Rect2(1800, 0, 600, 600)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fj00k"]
-atlas = ExtResource("4_v50gi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vpun"]
+atlas = ExtResource("5_v50gi")
 region = Rect2(0, 0, 600, 600)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8omm5"]
-atlas = ExtResource("4_v50gi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2oek"]
+atlas = ExtResource("5_v50gi")
 region = Rect2(600, 0, 600, 600)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6j2fq"]
-atlas = ExtResource("4_v50gi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0r6m"]
+atlas = ExtResource("5_v50gi")
 region = Rect2(1200, 0, 600, 600)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5j3ix"]
-atlas = ExtResource("4_v50gi")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb2vd"]
+atlas = ExtResource("5_v50gi")
 region = Rect2(1800, 0, 600, 600)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyv15"]
@@ -91,9 +108,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7f1tp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"bacrun",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj00k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8omm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j2fq")
+}, {
+"duration": 65.0,
+"texture": SubResource("AtlasTexture_5j3ix")
+}],
+"loop": 0,
+"name": &"dierun",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -108,24 +142,24 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2byf3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"forrun",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fj00k")
+"texture": SubResource("AtlasTexture_1vpun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8omm5")
+"texture": SubResource("AtlasTexture_r2oek")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6j2fq")
+"texture": SubResource("AtlasTexture_g0r6m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5j3ix")
+"texture": SubResource("AtlasTexture_wb2vd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"lefrun",
 "speed": 5.0
 }, {
@@ -142,21 +176,21 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gmb1w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"rigrun",
 "speed": 5.0
 }]
 
-[node name="Entity" type="RigidBody3D"]
+[node name="Entity" type="RigidBody3D" unique_id=306655243 groups=["Enemy"]]
 collision_layer = 3
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_coq8p")
 script = ExtResource("1_apgvv")
 
-[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1739706982]
 shape = SubResource("SphereShape3D_ia1lp")
 
-[node name="SOLBADGUY" type="AnimatedSprite3D" parent="."]
+[node name="SOLBADGUY" type="AnimatedSprite3D" parent="." unique_id=492100019]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.08, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_v50gi")
