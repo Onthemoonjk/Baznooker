@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://wu60h6gqi82l"]
+[gd_scene load_steps=30 format=3 uid="uid://wu60h6gqi82l"]
 
 [ext_resource type="Script" uid="uid://dki66owyh1qsy" path="res://badguy.gd" id="1_apgvv"]
 [ext_resource type="Texture2D" uid="uid://cpcid2wbpm5bd" path="res://assets/Ballrun-Sheet.png" id="1_lf2yb"]
@@ -108,7 +108,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7f1tp")
 }],
-"loop": 1,
+"loop": true,
 "name": &"bacrun",
 "speed": 5.0
 }, {
@@ -125,7 +125,7 @@ animations = [{
 "duration": 65.0,
 "texture": SubResource("AtlasTexture_5j3ix")
 }],
-"loop": 0,
+"loop": false,
 "name": &"dierun",
 "speed": 8.0
 }, {
@@ -142,7 +142,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2byf3")
 }],
-"loop": 1,
+"loop": true,
 "name": &"forrun",
 "speed": 5.0
 }, {
@@ -159,7 +159,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wb2vd")
 }],
-"loop": 1,
+"loop": true,
 "name": &"lefrun",
 "speed": 5.0
 }, {
@@ -176,21 +176,21 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gmb1w")
 }],
-"loop": 1,
+"loop": true,
 "name": &"rigrun",
 "speed": 5.0
 }]
 
-[node name="Entity" type="RigidBody3D" unique_id=306655243 groups=["Enemy"]]
+[node name="Entity" type="RigidBody3D" groups=["Enemy"]]
 collision_layer = 3
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_coq8p")
 script = ExtResource("1_apgvv")
 
-[node name="CollisionShape2D" type="CollisionShape3D" parent="." unique_id=1739706982]
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_ia1lp")
 
-[node name="SOLBADGUY" type="AnimatedSprite3D" parent="." unique_id=492100019]
+[node name="SOLBADGUY" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.08, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_v50gi")

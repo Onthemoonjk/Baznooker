@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://gor3v16p2ytg"]
+[gd_scene load_steps=13 format=3 uid="uid://gor3v16p2ytg"]
 
 [ext_resource type="PackedScene" uid="uid://wu60h6gqi82l" path="res://badguy.tscn" id="1_sasra"]
 [ext_resource type="PackedScene" uid="uid://dbtrpvolcbolp" path="res://Q.tscn" id="2_coq8p"]
@@ -22,67 +22,67 @@ sky_material = SubResource("PanoramaSkyMaterial_buypi")
 background_mode = 2
 sky = SubResource("Sky_buypi")
 
-[node name="Test scee" type="Node3D" unique_id=1087971196]
+[node name="Test scee" type="Node3D"]
 
-[node name="Container" type="Node3D" parent="." unique_id=1150368527]
+[node name="Container" type="Node3D" parent="."]
 script = ExtResource("5_7cbxl")
 
-[node name="Wall1" type="RigidBody3D" parent="Container" unique_id=585283872 groups=["Wall"]]
+[node name="Wall1" type="RigidBody3D" parent="Container" groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 
-[node name="Sprite3D" type="Sprite3D" parent="Container/Wall1" unique_id=1317244749]
+[node name="Sprite3D" type="Sprite3D" parent="Container/Wall1"]
 transform = Transform3D(100, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 30)
 texture = ExtResource("5_2nij2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall1" unique_id=251975568]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 shape = SubResource("BoxShape3D_ahet1")
 
-[node name="Wall2" type="RigidBody3D" parent="Container" unique_id=515094431 groups=["Wall"]]
+[node name="Wall2" type="RigidBody3D" parent="Container" groups=["Wall"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="Container/Wall2" unique_id=1404365058]
+[node name="Sprite3D" type="Sprite3D" parent="Container/Wall2"]
 transform = Transform3D(100, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 30)
 texture = ExtResource("5_2nij2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall2" unique_id=1740716762]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 shape = SubResource("BoxShape3D_ahet1")
 
-[node name="Wall3" type="RigidBody3D" parent="Container" unique_id=985781326 groups=["Wall"]]
+[node name="Wall3" type="RigidBody3D" parent="Container" groups=["Wall"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -20)
 
-[node name="Sprite3D" type="Sprite3D" parent="Container/Wall3" unique_id=1581784385]
+[node name="Sprite3D" type="Sprite3D" parent="Container/Wall3"]
 transform = Transform3D(100, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 30)
 texture = ExtResource("5_2nij2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall3" unique_id=773098163]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 shape = SubResource("BoxShape3D_ahet1")
 
-[node name="Wall4" type="RigidBody3D" parent="Container" unique_id=1129448570 groups=["Wall"]]
+[node name="Wall4" type="RigidBody3D" parent="Container" groups=["Wall"]]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -20, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="Container/Wall4" unique_id=1364607262]
+[node name="Sprite3D" type="Sprite3D" parent="Container/Wall4"]
 transform = Transform3D(100, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 30)
 texture = ExtResource("5_2nij2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall4" unique_id=2137376362]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 shape = SubResource("BoxShape3D_ahet1")
 
-[node name="Character" parent="." unique_id=1312724169 groups=["Character"] instance=ExtResource("2_coq8p")]
+[node name="Character" parent="." groups=["Character"] instance=ExtResource("2_coq8p")]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=998716642]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Pause" type="Control" parent="UI" unique_id=523808045]
+[node name="Pause" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_8pr8v")
 
-[node name="Button" type="Button" parent="UI/Pause" unique_id=1337970106]
+[node name="Button" type="Button" parent="UI/Pause"]
 visible = false
 layout_mode = 0
 offset_left = 459.0
@@ -94,24 +94,24 @@ action_mode = 0
 script = ExtResource("8_njel3")
 scene = "Main_menu"
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/Pause/Button" unique_id=705307172]
+[node name="Sprite2D" type="Sprite2D" parent="UI/Pause/Button"]
 position = Vector2(68, 59)
 texture = ExtResource("6_buypi")
 
-[node name="projectiles" type="Node" parent="." unique_id=53932368]
+[node name="projectiles" type="Node" parent="."]
 
-[node name="enermies" type="Node" parent="." unique_id=1853598449]
+[node name="enermies" type="Node" parent="."]
 
-[node name="Entity1" parent="enermies" unique_id=1620329999 instance=ExtResource("1_sasra")]
+[node name="Entity1" parent="enermies" instance=ExtResource("1_sasra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.66044, 0, -4.87427)
 
-[node name="Entity2" parent="enermies" unique_id=1538280987 instance=ExtResource("1_sasra")]
+[node name="Entity2" parent="enermies" instance=ExtResource("1_sasra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70527, 0, 8.91311)
 
-[node name="Entity3" parent="enermies" unique_id=1260316546 instance=ExtResource("1_sasra")]
+[node name="Entity3" parent="enermies" instance=ExtResource("1_sasra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96416, 0, 14.4167)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1518210191]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_buypi")
 
 [connection signal="pressed" from="UI/Pause/Button" to="UI/Pause/Button" method="_on_pressed"]

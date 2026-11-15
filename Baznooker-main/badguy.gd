@@ -9,6 +9,8 @@ var shaking = false
 func _ready() -> void:
 	sol.play(direction+"run")
 	body_entered.connect(_on_body_entered)
+	var jim = RandomNumberGenerator.new()
+	sol.modulate = Color(jim.randf_range(0.5,1.75), jim.randf_range(0.5,1.75), jim.randf_range(0.5,1.75))
 
 func finddir():
 	var greg = dot(Vector3(-sin(get_viewport().get_camera_3d().global_rotation.y), 0, -cos(get_viewport().get_camera_3d().global_rotation.y)),Vector3(-sin(self.global_rotation.y), 0, -cos(self.global_rotation.y)))
