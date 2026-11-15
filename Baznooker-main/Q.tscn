@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dbtrpvolcbolp"]
+[gd_scene load_steps=36 format=3 uid="uid://dbtrpvolcbolp"]
 
 [ext_resource type="Script" uid="uid://ckgrveb5lpidl" path="res://bouce_script.gd" id="1_fguf1"]
 [ext_resource type="Texture2D" uid="uid://d257ffddlidy4" path="res://icon.svg" id="2_bicv7"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b6gvkgs0gqefx" path="res://assets/gunequip.png" id="4_31b8i"]
 [ext_resource type="Shader" uid="uid://c7nanot1i6jx4" path="res://speedline.gdshader" id="5_1oppf"]
 [ext_resource type="Texture2D" uid="uid://vixjmv13d5ss" path="res://assets/gunshoot.png" id="6_1bykv"]
+[ext_resource type="Texture2D" uid="uid://dvxhobxy522c2" path="res://assets/sky_BOX.png" id="8_suosi"]
+[ext_resource type="Texture2D" uid="uid://clpuh5rotr4ek" path="res://assets/hpbar.png" id="9_4jrtu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_coq8p"]
 bounce = 1.0
@@ -235,5 +237,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.580392, 1, 1, 1)
+
+[node name="BAR" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(272.594, 559.622)
+rotation = 0.0698132
+scale = Vector2(0.598684, 0.0783333)
+texture = ExtResource("8_suosi")
+
+[node name="HP" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(546, 166)
+scale = Vector2(1.78, 1.6)
+texture = ExtResource("9_4jrtu")
 
 [connection signal="animation_finished" from="CanvasLayer/Gunarm/TheHandInQuestion" to="CanvasLayer/Gunarm" method="_on_the_hand_in_question_animation_finished"]

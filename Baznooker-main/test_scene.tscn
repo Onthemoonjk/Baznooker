@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://gor3v16p2ytg"]
+[gd_scene load_steps=14 format=3 uid="uid://gor3v16p2ytg"]
 
 [ext_resource type="PackedScene" uid="uid://wu60h6gqi82l" path="res://badguy.tscn" id="1_sasra"]
 [ext_resource type="PackedScene" uid="uid://dbtrpvolcbolp" path="res://Q.tscn" id="2_coq8p"]
+[ext_resource type="PackedScene" uid="uid://dcu3lvyaqeb02" path="res://pit.tscn" id="3_njel3"]
 [ext_resource type="Texture2D" uid="uid://d257ffddlidy4" path="res://icon.svg" id="5_2nij2"]
 [ext_resource type="Script" uid="uid://vo7wmeqyuswp" path="res://container.gd" id="5_7cbxl"]
 [ext_resource type="Texture2D" uid="uid://dbjaktb05o5qo" path="res://assets/BOX3.png" id="6_buypi"]
@@ -85,17 +86,18 @@ script = ExtResource("7_8pr8v")
 [node name="Button" type="Button" parent="UI/Pause"]
 visible = false
 layout_mode = 0
-offset_left = 459.0
-offset_top = 231.0
-offset_right = 593.0
-offset_bottom = 351.0
+offset_left = 475.0
+offset_top = 255.0
+offset_right = 704.0
+offset_bottom = 375.0
 disabled = true
 action_mode = 0
+flat = true
 script = ExtResource("8_njel3")
 scene = "Main_menu"
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/Pause/Button"]
-position = Vector2(68, 59)
+position = Vector2(133, -105)
 texture = ExtResource("6_buypi")
 
 [node name="projectiles" type="Node" parent="."]
@@ -111,7 +113,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70527, 0, 8.91311)
 [node name="Entity3" parent="enermies" instance=ExtResource("1_sasra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96416, 0, 14.4167)
 
+[node name="Entity" parent="enermies" instance=ExtResource("1_sasra")]
+
+[node name="Entity4" parent="enermies" instance=ExtResource("1_sasra")]
+
+[node name="Entity5" parent="enermies" instance=ExtResource("1_sasra")]
+
+[node name="Entity6" parent="enermies" instance=ExtResource("1_sasra")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_buypi")
+
+[node name="Area3D" parent="." instance=ExtResource("3_njel3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2713, 0, 43.2685)
+
+[node name="Area3D2" parent="." instance=ExtResource("3_njel3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2713, 0, -40.9823)
+
+[node name="Area3D3" parent="." instance=ExtResource("3_njel3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5502, 0, 43.2685)
+
+[node name="Area3D4" parent="." instance=ExtResource("3_njel3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5502, 0, -40.9823)
 
 [connection signal="pressed" from="UI/Pause/Button" to="UI/Pause/Button" method="_on_pressed"]

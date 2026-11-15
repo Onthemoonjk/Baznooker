@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcu3lvyaqeb02"]
+
+[ext_resource type="Script" uid="uid://bmoue648k34en" path="res://pit.gd" id="1_8t5cw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5bk73"]
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_8t5cw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_5bk73")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -22,12 +22,24 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	contact_monitor = true
 	max_contacts_reported = 1
+	var jim = RandomNumberGenerator.new()
+	visual.modulate = Color(jim.randf_range(0.25,1.45), jim.randf_range(0.5,2.75), jim.randf_range(0.4,1.65))
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	lifetime-=delta
-	if lifetime <= 0:
+	if lifetime <=0:
+		if setsize > 1.3:
+			freeze = true
+			col.disabled = true
+			visual.play("splode")
+			
+		else:
+			lifetime=-0.5
+	
+	
+	if lifetime <= -0.5:
 		queue_free()
 
 func _physics_process(delta: float) -> void:
@@ -38,4 +50,12 @@ func _on_body_entered(body: RigidBody3D):
 	if body.is_in_group("Enemy"):
 		body.damage(linear_velocity.length()/10)
 		shooter.dashcd=0
-	queue_free()
+		position=body.position
+		freeze = true
+		col.disabled = true
+	lifetime=0
+
+
+func _on_kdollars_animation_finished() -> void:
+	if visual.animation == "splode":
+		queue_free()

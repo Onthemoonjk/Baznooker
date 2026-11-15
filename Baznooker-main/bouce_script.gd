@@ -1,12 +1,17 @@
 extends RigidBody3D
 @onready var pause_node: Node = $"../UI/Pause"
-var health = 500
+@onready var hpbar = $CanvasLayer/BAR
+var health = 100
+var maxhp = 100
 var dashcd=1
 var chargingdash = false
 var chargetime = 0
 var shootcd = 0
 var shootcharge = 0
 var chargingshot = false
+var antidashtime = 0
+var careaboutheight = true
+var pitkiller = null
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
@@ -17,15 +22,26 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
-	pass
+	var ratio = clampf(float(health) / maxhp, 0.0, 1.0)
+
+	hpbar.scale.x = 0.599 * ratio
+	hpbar.position.x = (272.594 - (hpbar.texture.get_width() * 0.599 * (1.0 - ratio)) / 2.0) + (0.025*(health) / (1+maxhp))
+	
+
 
 func _on_body_entered(body: RigidBody3D):
 	body.linear_velocity *= 1.25
 	if body.is_in_group("Enemy"):
 		body.damage(linear_velocity.length()*2.5)
+		if antidashtime > -0.8:
+			self.damage(linear_velocity.length()*0)
+		else:
+			self.damage(linear_velocity.length()*5)
+			antidashtime=0.65
 
 func _physics_process(delta: float) -> void:
-	position.y = 0
+	if careaboutheight:
+		position.y = 0
 	dashcd -= delta
 	if linear_velocity.length() < 10:
 		$CanvasLayer/MistFiner.material.set_shader_parameter("line_density",0)
@@ -59,7 +75,9 @@ func _physics_process(delta: float) -> void:
 			chargingdash = false
 			var direction = Vector3(-sin(self.rotation.y), 0, -cos(self.rotation.y))
 			apply_central_impulse(80*direction)
+			antidashtime = 0
 		dashcd = 1
+	antidashtime -= delta
 	shootcd-=delta
 	if Input.is_action_just_pressed("shoot") and shootcd <= 0 or chargingshot:
 		$CanvasLayer/Gunarm.chargeshot(shootcharge)
@@ -84,7 +102,7 @@ func _physics_process(delta: float) -> void:
 		horseyforcey+=Vector3(-sin(self.rotation.y+PI/2), 0, -cos(self.rotation.y+PI/2))
 	if Input.is_action_pressed("debugrig"):
 		horseyforcey+=Vector3(-sin(self.rotation.y-PI/2), 0, -cos(self.rotation.y-PI/2))
-	apply_central_force(horseyforcey*10)
+	apply_central_force(horseyforcey*30)
 	#END OF TEST CONTROLS
 	
 	apply_force(-self.linear_velocity*1.5)
@@ -102,4 +120,6 @@ func damage(hurty):
 	health -= hurty
 	print("Player:"+str(health))
 	if health <= 0:
+		if pitkiller != null:
+			pitkiller.guystokill.erase(self)
 		get_tree().change_scene_to_file("res://Main_menu.tscn")
