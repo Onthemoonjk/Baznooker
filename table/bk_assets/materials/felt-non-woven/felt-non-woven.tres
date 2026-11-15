@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bvw0vlf5gx0ke"]
+
+[resource]
+resource_name = "Felt Non-Woven"
+albedo_color = Color(0.013702, 0.097587, 0.012286, 1)
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true
