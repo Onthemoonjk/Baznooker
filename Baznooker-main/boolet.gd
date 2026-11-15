@@ -15,7 +15,7 @@ var lifetime = 2
 func _ready() -> void:
 	self.linear_damp = 0
 	var dir = -shooter.global_transform.basis.z
-	global_position = shooter.global_position+3*dir
+	global_position = shooter.global_position+0.9*shooter.global_transform.basis.x+0.4*shooter.global_transform.basis.y
 	self.scale *= setsize
 	visual.play("test")
 	apply_central_impulse(SHOOT*dir)

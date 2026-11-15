@@ -114,6 +114,8 @@ animations = [{
 }]
 
 [node name="Entity" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_coq8p")
 script = ExtResource("1_apgvv")
 
